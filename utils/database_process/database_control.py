@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import enum
+
 import pymysql
+
 from utils import config
 from utils import logger
 from utils.commons.singleton_control import singleton
@@ -15,10 +17,8 @@ class QueryState(enum.Enum):
 @singleton
 class MysqlDB:
     """数据库封装"""
-
     def __init__(self):
         """初始化数据库连接"""
-
         try:
             self.conn = pymysql.connect(
                 host=config.mysql_db.host,

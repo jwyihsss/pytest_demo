@@ -1,0 +1,51 @@
+common_inputs:
+  method: GET
+  path: /dms/recharge/order
+
+tests:
+  - case: 充值记录查询
+    inputs:
+      params: {"app_id": 45101,"game_id": 451,"start_time": "2024-05-16 00:00:00","end_time": "2024-05-16 23:59:59","page_size": 50,"page_index": 1  }
+      json: { }
+      headers:
+        Content-Type: application/json;charset=UTF-8
+      file:
+      sql:
+      assert_key: $..success
+      assert_way: in
+    expectation:
+      code: 200
+      data: { "records": [
+        {
+          "order_id": 30632,
+          "order_no": "24051636912200000004790001",
+          "user_id": 1,
+          "recharge_id": 2,
+          "deal_price": 0.99,
+          "local_price_currency": "usd",
+          "local_price": 0.99,
+          "recharge_time": "2024-05-16 10:15:12",
+          "deal_time": "2024-05-16 10:16:08",
+          "payment_type": 85,
+          "payment_param": "haofan",
+          "order_status": 3,
+          "payment_env": 1,
+          "recharge_type": 0,
+          "game_givepkg_id": 1,
+          "client_ipv6": "rBAL+g==",
+          "remarks": "{\"distinctId\":\"201e7f88-132a-11ef-a818-e09d31fc5805\"}",
+          "app_id": 45101,
+          "nick_name": "hf~1",
+          "recharge_name": "微服务开发",
+          "ip_str": "172.16.11.250",
+          "delay_in_arrival": 56
+        }
+      ],
+              "total": 1,
+              "size": 50,
+              "current": 1,
+              "optimize_count_sql": true,
+              "hit_count": false,
+              "search_count": true,
+              "pages": 1
+      }

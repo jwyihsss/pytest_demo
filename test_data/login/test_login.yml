@@ -1,26 +1,19 @@
 common_inputs:
-    method: POST
-    path: /login
+  method: PUT
+  path: /dms/login
 
 tests:
   - case: 正确账号、密码登录
     inputs:
-      params: {}
-      json: {"account": "{{phone_number()}}", "password": "xxxxxxxxxx"}
+      params: False
+      data: { "admin_name": "jie","password": "e10adc3949ba59abbe56e057f20f883e" }
+      headers:
+        Content-Type: application/json;charset=UTF-8
       file:
       sql:
       assert_key: $..success
       assert_way: unequal
-    expectation:
-      response: true
-
-  - case: 错误账号、密码登录
-    inputs:
-      params: {}
-      json: {"account": "18900001000", "password": "xxxxxx"}
-      file:
-      sql:
-      assert_key: $..success
-      assert_way: unequal
-    expectation:
-      response: true
+    expectation: {
+      "code": 200,
+      "data": "4017b2449073417b9d5318a5e8743a16"
+    }

@@ -1,38 +1,47 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time : 2023/4/24 15:59
-# @Author : 谈林海
+# @Author :
+import asyncio
 from pathlib import Path
 from typing import List, Dict, Any
-import asyncio
+
 import aiofiles
 
 from utils import root
-from utils.fake_data.fake_data_control import Mock
 from utils.commons.pathlib_control import FileUtils
+from utils.fake_data.fake_data_control import Mock
 from utils.read_file_process.read_yaml_control import HandleYaml
 
-# 断言映射
+#  断言映射
 assert_context = {
-    'equal': "assert core.js(res).find_one(inputs['assert_key']) == expectation['response']",
-    'unequal': "assert core.js(res).find_one(inputs['assert_key']) != expectation['response']",
-    'in': "assert core.js(res).find_one(inputs['assert_key']) in expectation['response']",
-    'not_in': "assert core.js(res).find_one(inputs['assert_key']) not in expectation['response']",
-    'true': "assert core.js(res).find_one(inputs['assert_key'])) is True",
-    'false': "assert core.js(res).find_one(inputs['assert_key'])) is False",
-    'none': "assert core.js(res).find_one(inputs['assert_key']) is None",
-    'not_none': "assert core.js(res).find_one(inputs['assert_key']) is not None"
+    'equal': "assert res.get(inputs['assert_key']) == expectation['data']",
+    'unequal': "assert res.get(inputs['assert_key']) != expectation['data']",
+    'in': "assert res.get(inputs['assert_key']) in expectation['data']",
+    'not_in': "assert res.get(inputs['assert_key']) not in expectation['data']",
+    'true': "assert res.get(inputs['assert_key']) is True",
+    'false': "assert res.get(inputs['assert_key']) is False",
+    'none': "assert res.get(inputs['assert_key']) is None",
+    'not_none': "assert res.get(inputs['assert_key']) is not None"
 }
+
+# assert_context = {
+#     'equal': "assert core.js(res).find_one(inputs['assert_key']) == expectation['response']",
+#     'unequal': "assert core.js(res).find_one(inputs['assert_key']) != expectation['response']",
+#     'in': "assert core.js(res).find_one(inputs['assert_key']) in expectation['response']",
+#     'not_in': "assert core.js(res).find_one(inputs['assert_key']) not in expectation['response']",
+#     'true': "assert core.js(res).find_one(inputs['assert_key'])) is True",
+#     'false': "assert core.js(res).find_one(inputs['assert_key'])) is False",
+#     'none': "assert core.js(res).find_one(inputs['assert_key']) is None",
+#     'not_none': "assert core.js(res).find_one(inputs['assert_key']) is not None"
+# }
 
 
 class CaseHandler:
     """用例相关数据处理"""
-
     def __init__(self, file_path: Path = root / 'test_data'):
         """初始化目录路径"""
-
         self._file_path = file_path
-
     @property
     def get_data_path(self) -> List[Path]:
         """获取测试数据路径"""
@@ -65,7 +74,8 @@ class TestCaseAutoCreate(CaseHandler):
 
             # 处理测试数据
             for data in case_detail.get('tests'):
-                params, files, ast_way = data['inputs'].get('params'), data['inputs'].get('file'), data['inputs'].get('assert_way')
+                params, files, ast_way = data['inputs'].get('params'), data['inputs'].get('file'), data['inputs'].get(
+                    'assert_way')
 
             # 创建目录
             FileUtils.create_dir(case_path) if not FileUtils.is_exist(case_path) else ...
@@ -94,12 +104,21 @@ class TestCaseAutoCreate(CaseHandler):
 # @Time : {Mock().now_time()}
 import allure
 import pytest
+import yaml
+import time
 
 
 @allure.feature('{feature}')
 @pytest.mark.datafile('test_data/{feature}/{datafile}.yml')
 def {datafile}(core, env, case, inputs, expectation):
-    res = core.requests.request(env, {'data' if params else 'json'}=inputs[{"'params'" if params else "'json'"}], {file}headers=core.headers).json()
+    filepath = r'C:\\Users\\Administrator\\PycharmProjects\\t2-api-autotest\\token.yaml'
+    with open(filepath, 'r', encoding='utf-8') as f:
+        token = yaml.safe_load(f)["x-k7-token"]
+    timestamp = int(time.time() * 1000)
+    core.headers['x-k7-timestamp'] = str(timestamp)
+    core.headers['Content-Type'] = 'application/json;charset=UTF-8'
+    core.headers['x-k7-token'] = token
+    res = core.requests.request(env, {'data' if params else 'json'}=inputs[{"'params'" if params else "'data'"}], {file}headers=core.headers).json()
     with allure.step('接口响应断言'):
         {ast_context}"""
 

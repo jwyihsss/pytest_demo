@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time : 2023/3/24 13:08
-# @Author : 谈林海
+# @Author :
 import re
+
 import allure
 import pytest
 from _pytest.assertion.util import assertrepr_compare
 
 from utils import *
+from utils.data_process.params_replace_control import DataHandler, Config
 from utils.database_process.database_control import MysqlDB
 from utils.read_file_process.read_yaml_control import HandleYaml
-from utils.data_process.params_replace_control import DataHandler, Config
 from utils.requests_process.requests_control import RestClient
 
 
@@ -64,7 +65,8 @@ def alert_common_inputs(request):
         if "{" in url and "}" in url:
             if matchs := re.search(r"\{(.+?)\}", url):
                 replace_context = matchs.group(1)
-                url = url.replace(url[url.find("{"):env[0].find("}") + 1], str(caches.get(replace_context[replace_context.find('.') + 1:])))
+                url = url.replace(url[url.find("{"):env[0].find("}") + 1],
+                                  str(caches.get(replace_context[replace_context.find('.') + 1:])))
                 env[0] = url
 
 
@@ -96,7 +98,8 @@ def pytest_collection_modifyitems(items):
 
 db_config = all([v for k, v in dict(config.mysql_db).items()])
 if not db_config:
-    logger.warning('当前配置库未配置或配置有误')
+    logger.warning(''
+                   '当前配置库未配置或配置有误')
 
 
 @pytest.fixture(autouse=True)
@@ -114,5 +117,3 @@ def collection():
 @pytest.fixture()
 def core(collection):
     yield collection
-
-

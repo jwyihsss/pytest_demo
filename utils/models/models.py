@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from typing import Union
-from pydantic import BaseModel, validator
 from typing import Text
+from typing import Union
+from typing import Optional
+
+from pydantic import BaseModel, validator
 
 
 class Jenkins(BaseModel):
@@ -19,7 +21,7 @@ class DingTalk(BaseModel):
     """钉钉消息推送"""
 
     webhook: Union[str, None]
-    test_webhook: Union[str, None]
+    #test_webhook: Union[str, None]
 
 
 class MySqlDB(BaseModel):
@@ -60,5 +62,3 @@ class Config(BaseModel):
         if isinstance(v, str) and len(v.strip()) == 0:
             raise ValueError("测试域名不能为空")
         return v
-
-

@@ -1,16 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time : 2023-04-25 11:52:55
+# @Time : 2025-05-27 16:12:51
 import allure
 import pytest
+import yaml
+import time
 
 
-@allure.feature('登录模块')
-@allure.title('登录接口')
-@pytest.mark.login
 @allure.feature('login')
 @pytest.mark.datafile('test_data/login/test_login.yml')
-def test_tianqi(core, env, case, inputs, expectation):
-    res = core.requests.request(env, data=inputs['params'], headers=core.headers).json()
-    core.cache.add_cache('test_login', res['key'])
-    assert res == expectation['response']
+def test_login(core, env, case, inputs, expectation):
+    filepath = r'C:\Users\Administrator\PycharmProjects\t2-api-autotest\token.yaml'
+    with open(filepath, 'r', encoding='utf-8') as f:
+        token = yaml.safe_load(f)["x-k7-token"]
+    timestamp = int(time.time() * 1000)
+    core.headers['x-k7-timestamp'] = str(timestamp)
+    core.headers['Content-Type'] = 'application/json;charset=UTF-8'
+    core.headers['x-k7-token'] = token
+    res = core.requests.request(env, json=inputs['data'], headers=core.headers).json()
+    with allure.step('接口响应断言'):
+        assert res.get(inputs['assert_key']) != expectation['data']

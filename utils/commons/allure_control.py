@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
-import allure
 from typing import Any, Dict, Union, Optional
+
+import allure
 
 
 class ReportStyle:
@@ -30,4 +31,3 @@ class ReportStyle:
         """
         with allure.step(step):
             ...
-

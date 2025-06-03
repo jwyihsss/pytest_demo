@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import time
-import loguru
 from pathlib import Path
+
+import loguru
+
 from utils.models.models import Config
 from utils.read_file_process.read_yaml_control import HandleYaml
 

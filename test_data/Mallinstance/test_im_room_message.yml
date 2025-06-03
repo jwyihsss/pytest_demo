@@ -1,0 +1,163 @@
+common_inputs:
+  method: GET
+  path: /dms/im/room_message
+
+tests:
+  - case: 聊天室记录列表
+    inputs:
+      params: { "app_id": "45101","game_id": "451","begin_time": "2024-05-15 00:00:00","end_time": "2024-05-15 23:59:59","sort": "send_time","sort_type": "desc","page_index": "1","page_size": "50" }
+      json: { }
+      headers:
+        Content-Type: application/json;charset=UTF-8,
+        X-K7-Stage: test,
+
+
+      file:
+      sql:
+      assert_key: $..success
+      assert_way: in
+    expectation:
+      {
+        "code": 200,
+        "data": {
+          "records": [
+            {
+              "id": 405,
+              "room_id": 10055,
+              "seq_id": 1,
+              "from_player_id": 1136889,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001D\u0010��E\"\b16100001*\rplayer1136889\u0012\u001A\n\u0018大的说法是的撒多",
+              "send_time": "2024-05-15 16:53:06",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 395,
+              "room_id": 6,
+              "seq_id": 2,
+              "from_player_id": 1125052,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001D\u0010��D\"\b16100001*\rplayer1125052\u0012\u000E\n\f萨达萨达",
+              "send_time": "2024-05-15 16:28:42",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 391,
+              "room_id": 5,
+              "seq_id": 26,
+              "from_player_id": 18366,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001B\u0010��\u0001\"\b16100001*\u000Bplayer18366\u0012\b\n\u0006卡恩",
+              "send_time": "2024-05-15 16:03:17",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 390,
+              "room_id": 5,
+              "seq_id": 25,
+              "from_player_id": 18366,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001B\u0010��\u0001\"\b16100001*\u000Bplayer18366\u0012\u0011\n\u000F啦胡咯哦哦",
+              "send_time": "2024-05-15 16:02:17",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 389,
+              "room_id": 5,
+              "seq_id": 24,
+              "from_player_id": 1136889,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001D\u0010��E\"\b16100001*\rplayer1136889\u0012\u0014\n\u0012苏打水大所多",
+              "send_time": "2024-05-15 16:01:44",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 385,
+              "room_id": 5,
+              "seq_id": 23,
+              "from_player_id": 1136472,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001D\u0010خE\"\b16100001*\rplayer1136472\u0012\r\n\u000B77777777777",
+              "send_time": "2024-05-15 15:05:39",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 382,
+              "room_id": 5,
+              "seq_id": 22,
+              "from_player_id": 18366,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001B\u0010��\u0001\"\b16100001*\u000Bplayer18366\u0012\t\n\u0007ytdfgjj",
+              "send_time": "2024-05-15 14:48:39",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 381,
+              "room_id": 5,
+              "seq_id": 21,
+              "from_player_id": 18366,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001B\u0010��\u0001\"\b16100001*\u000Bplayer18366\u0012\b\n\u0006yyrcjj",
+              "send_time": "2024-05-15 14:48:26",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 379,
+              "room_id": 5,
+              "seq_id": 20,
+              "from_player_id": 1136889,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001D\u0010��E\"\b16100001*\rplayer1136889\u0012)\n'fgsdfgsdfsdfasdasdsadesfdsfsdfdaswwewed",
+              "send_time": "2024-05-15 14:44:16",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            },
+            {
+              "id": 377,
+              "room_id": 6,
+              "seq_id": 1,
+              "from_player_id": 1070592,
+              "msg_uuid": 0,
+              "msg_type": 1,
+              "msg_body": "\n\u001D\u0010��A\"\b16100001*\rplayer1070592\u0012\u0016\n\u0014 给对方 的风格",
+              "send_time": "2024-05-15 14:43:57",
+              "is_discard": false,
+              "is_sensitive": false,
+              "app_id": 45101
+            }
+          ],
+          "total": 10,
+          "size": 50,
+          "current": 1,
+          "optimize_count_sql": true,
+          "hit_count": false,
+          "search_count": true,
+          "pages": 1
+        }
+      }

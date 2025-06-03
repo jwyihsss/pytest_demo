@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time : 2023/4/10 10:56
-# @Author : 谈林海
+# @Author :
 from jsonpath import jsonpath
 
 

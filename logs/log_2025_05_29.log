@@ -1,0 +1,70 @@
+2025-05-29 10:44:00.595 | INFO     | __main__:run:17 - 
+
+               开始执行项目...
+            ⣿⣿⣿⠟⠛⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢋⣩⣉⢻
+            ⣿⣿⣿⠀⣿⣶⣕⣈⠹⠿⠿⠿⠿⠟⠛⣛⢋⣰⠣⣿⣿⠀⣿
+            ⣿⣿⣿⡀⣿⣿⣿⣧⢻⣿⣶⣷⣿⣿⣿⣿⣿⣿⠿⠶⡝⠀⣿
+            ⣿⣿⣿⣷⠘⣿⣿⣿⢏⣿⣿⣋⣀⣈⣻⣿⣿⣷⣤⣤⣿⡐⢿
+            ⣿⣿⣿⣿⣆⢩⣝⣫⣾⣿⣿⣿⣿⡟⠿⠿⠦⠀⠸⠿⣻⣿⡄⢻
+            ⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⠇⣼
+            ⣿⣿⣿⣿⣿⣿⡄⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣰
+            ⣿⣿⣿⣿⣿⣿⠇⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⣿
+            ⣿⣿⣿⣿⣿⠏⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿
+            ⣿⣿⣿⣿⠟⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿
+            ⣿⣿⣿⠋⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⣿
+            ⣿⣿⠋⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸
+               
+2025-05-29 10:44:01.259 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 10:44:02.179 | INFO     | utils.requests_process.requests_control:wrapper:85 - 
+请求地址: http://dev-dms.k7.cn/dms/user/player_base
+请求方法: GET
+请求头: {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'x-k7-timestamp': '1748486642156', 'Content-Type': 'application/json;charset=UTF-8', 'x-k7-token': '0d3fcd16f8614a7d801f794efe19a64a'}
+请求数据: {'user_id': 17776, 'app_id': 45101, 'game_id': 451}
+响应数据: {'msg': '用户未登录(5)', 'code': 5}
+响应耗时(ms): 22.0
+接口响应码: 200
+
+2025-05-29 10:44:02.259 | INFO     | utils.requests_process.requests_control:wrapper:85 - 
+请求地址: http://dev-dms.k7.cn/dms/login
+请求方法: PUT
+请求头: {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'x-k7-timestamp': '1748486642202', 'Content-Type': 'application/json;charset=UTF-8', 'x-k7-token': '0d3fcd16f8614a7d801f794efe19a64a'}
+请求数据: {'admin_name': 'jie', 'password': 'e10adc3949ba59abbe56e057f20f883e'}
+响应数据: {'code': 200, 'data': {'admin_id': 2, 'token': 'b021c9a15778462cbb59118389d00339'}}
+响应耗时(ms): 56.0
+接口响应码: 200
+
+2025-05-29 10:44:02.296 | INFO     | utils.requests_process.requests_control:wrapper:85 - 
+请求地址: http://dev-dms.k7.cn/dms/recharge/order
+请求方法: GET
+请求头: {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'x-k7-timestamp': '1748486642282', 'Content-Type': 'application/json;charset=UTF-8', 'x-k7-token': '0d3fcd16f8614a7d801f794efe19a64a'}
+请求数据: {'app_id': 45101, 'game_id': 451, 'start_time': '2024-05-16 00:00:00', 'end_time': '2024-05-16 23:59:59', 'page_size': 50, 'page_index': 1}
+响应数据: {'msg': '用户未登录(5)', 'code': 5}
+响应耗时(ms): 13.0
+接口响应码: 200
+
+2025-05-29 11:27:41.409 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:27:56.153 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:28:21.573 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:29:01.223 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:29:22.500 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:29:33.101 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:29:47.933 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:30:00.989 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:31:09.163 | INFO     | __main__:run:17 - 
+
+               开始执行项目...
+            ⣿⣿⣿⠟⠛⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢋⣩⣉⢻
+            ⣿⣿⣿⠀⣿⣶⣕⣈⠹⠿⠿⠿⠿⠟⠛⣛⢋⣰⠣⣿⣿⠀⣿
+            ⣿⣿⣿⡀⣿⣿⣿⣧⢻⣿⣶⣷⣿⣿⣿⣿⣿⣿⠿⠶⡝⠀⣿
+            ⣿⣿⣿⣷⠘⣿⣿⣿⢏⣿⣿⣋⣀⣈⣻⣿⣿⣷⣤⣤⣿⡐⢿
+            ⣿⣿⣿⣿⣆⢩⣝⣫⣾⣿⣿⣿⣿⡟⠿⠿⠦⠀⠸⠿⣻⣿⡄⢻
+            ⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⠇⣼
+            ⣿⣿⣿⣿⣿⣿⡄⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣰
+            ⣿⣿⣿⣿⣿⣿⠇⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⣿
+            ⣿⣿⣿⣿⣿⠏⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿
+            ⣿⣿⣿⣿⠟⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿
+            ⣿⣿⣿⠋⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⣿
+            ⣿⣿⠋⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸
+               
+2025-05-29 11:31:09.470 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误
+2025-05-29 11:31:22.375 | WARNING  | conftest:<module>:101 - 当前配置库未配置或配置有误

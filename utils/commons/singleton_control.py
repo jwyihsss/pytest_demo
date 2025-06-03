@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time : 2023/4/27 09:51
-# @Author : 谈林海
+# @Author :
 from functools import lru_cache, wraps
 
 
