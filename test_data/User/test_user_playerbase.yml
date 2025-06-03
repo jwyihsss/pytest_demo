@@ -1,0 +1,21 @@
+common_inputs:
+  method: GET
+  path: /dms/user/player_base
+
+tests:
+  - case: 聊天室记录列表
+    inputs:
+      params: { "user_id":17776,"app_id":45101,"game_id":451 }
+      json: { }
+      headers:
+        Content-Type: application/json;charset=UTF-8,
+        X-K7-Stage: test,
+
+
+      file:
+      sql:
+      assert_key: $..success
+      assert_way: in
+    expectation:
+      {"code":200,
+      "data":[]}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time : 2023/4/7 14:00
-# @Author : 谈林海
+# @Author :
 import http.cookiejar as cj
 from datetime import datetime, timedelta
 

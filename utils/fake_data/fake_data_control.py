@@ -1,15 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import inspect
-from faker import Faker
-from utils import logger
 from datetime import datetime
+
+from faker import Faker
+
+from utils import logger
 
 faker = Faker(locale='zh_CN')
 
 
 class Mock:
     """ Mock数据 """
+
     def __init__(self, func_name=None):
         self._faker = faker
         self.func_name = func_name
@@ -63,4 +66,3 @@ if __name__ == '__main__':
     r3 = Mock().now_time()
     print(r1)
     print(Mock('phone_number()')())
-

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import json
 import datetime
-from utils import *
+import json
 
 import jenkins
 import urllib3
-from utils.fake_data.fake_data_control import Mock
 from dingtalkchatbot.chatbot import DingtalkChatbot
+
+from utils import *
+from utils.fake_data.fake_data_control import Mock
 
 url = config.jenkins.url
 user = config.jenkins.user
@@ -72,9 +73,18 @@ class SendDingTalk(JenkinsContent):
         json_path = root / 'allure-report/widgets/summary.json'
         with open(json_path) as f:
             res = json.load(f)
+            print("Summary JSON content:", res)  # 打印结构用于调试
         today = str(datetime.date.today())
-        s = time.localtime(res['time']['start'] / 1000)
+        start_time = res.get('time', {}).get('start')
+        if not start_time:
+            # 使用当前时间作为兜底
+            s = time.localtime()
+        else:
+            s = time.localtime(start_time / 1000)
         report_time = time.strftime("%Y-%m-%d", s)
+
+        # s = time.localtime(res['time']['start'] / 1000)
+        # report_time = time.strftime("%Y-%m-%d", s)
 
         if report_time == today:
             text = f'### **{self.job_name}接口自动化通知**\n' \

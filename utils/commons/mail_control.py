@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import smtplib
-from utils import config
-from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
+from email.mime.text import MIMEText
+
+from utils import config
 
 
 class MailSender:

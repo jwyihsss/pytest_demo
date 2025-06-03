@@ -3,23 +3,23 @@ env: 测试环境
 tester_name:
 
 # 测试域名
-host: http://dev-bms.k7.cn
+host: http://dev-dms.k7.cn
 # 登录用户信息
-admin_name: jie
+account: jie
 password: e10adc3949ba59abbe56e057f20f883e
 
- #jenkins相关配置
+#jenkins相关配置
 jenkins:
   # 本地服务
-  url: http://yellow-jenkins.kaiqitech.com/
+  url: http://172.16.1.217
   # 如果有映射网址，可以填在这里
-  mapping_url:
+  mapping_url: http://yellow-jenkins.kaiqitech.com/
   # jenkins账号
   user: jie.jiang
   # jenkins密码
   pwd: jiang123456
   # 要推送的项目名
-  project:
+  project: bms-web
 
 # 钉钉消息通知相关配置
 ding_talk:

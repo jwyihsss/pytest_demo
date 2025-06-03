@@ -1,5 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Fri Jul 28 15:28:05 CST 2023","Fri Jul 28 15:28:05 CST 2023","37","test_cases.quest_app","test_quest_app","","","","任务关联查询接口",""
-"failed","Fri Jul 28 15:28:03 CST 2023","Fri Jul 28 15:28:04 CST 2023","1829","test_cases.login","test_login","","","","登录接口",""
-"passed","Fri Jul 28 15:28:04 CST 2023","Fri Jul 28 15:28:05 CST 2023","85","test_cases.login","test_login","","","","登录接口",""
-"broken","Fri Jul 28 15:28:02 CST 2023","Fri Jul 28 15:28:02 CST 2023","302","test_cases.Mallinstance","test_Mall_instance","","","","商城项目查询接口",""

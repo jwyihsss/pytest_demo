@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time : 2023/4/25 16:16
-# @Author : 谈林海
+# @Author : 江洁
 import os
 import shutil
 from pathlib import Path
@@ -12,7 +12,6 @@ class FileUtils:
     """
     文件操作封装类
     """
-
     @staticmethod
     def splitall(path: Union[str, Path]) -> List[str]:
         """
@@ -264,4 +263,3 @@ class FileUtils:
         """
         path = Path(path)
         return path.name, path.suffix, FileUtils.get_size(path)
-

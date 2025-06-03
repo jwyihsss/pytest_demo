@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from pathlib import Path
-from pydantic import BaseModel
 from typing import Any, Dict, Union
+
+from pydantic import BaseModel
 
 from utils import root
 from utils.fake_data.fake_data_control import Mock
@@ -64,4 +65,3 @@ class DataHandler:
             return str(value.replace('{{%s}}' % f'{func}', str(Mock(func[func.find('.') + 1:])())))
         else:
             return value
-

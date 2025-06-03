@@ -4,25 +4,29 @@
 # @Author :
 import json
 from functools import wraps
-import time
+
 import httpx
+
 from utils import *
 from utils.commons.allure_control import ReportStyle
 from utils.commons.singleton_control import singleton
 from utils.data_process.json_control import JsonHandler
 from utils.requests_process.create_cookie_control import Cookies
 
+
 def get_timestamp():
     return str(int(time.time() * 1000))
+
+
 timestamp = get_timestamp()
 
 payload = {"admin_name": config.account,
            "password": config.password
            }
-headers={
-        "Content-Type": "application/json;charset=UTF-8",
-        "x-k7-timestamp": timestamp
-    }
+headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    "x-k7-timestamp": timestamp
+}
 
 
 @singleton
@@ -32,7 +36,7 @@ class Authentication:
     @staticmethod
     def cookie_token():
         try:
-            res = httpx.put('http://dev-bms.k7.cn/login', data=payload,headers=headers)
+            res = httpx.put('http://dev-dms.k7.cn/login', data=payload, headers=headers)
             js = JsonHandler(res.json())
 
             res_cookies, res_token = res.cookies, js.find_one('$..token')
